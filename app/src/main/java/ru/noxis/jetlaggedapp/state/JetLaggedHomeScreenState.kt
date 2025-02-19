@@ -1,11 +1,13 @@
 package ru.noxis.jetlaggedapp.state
 
 import ru.noxis.jetlaggedapp.data.HeartRateData
+import ru.noxis.jetlaggedapp.data.SleepGraphData
 import ru.noxis.jetlaggedapp.data.heartRateGraphData
+import ru.noxis.jetlaggedapp.data.sleepData
 
 
 data class JetLaggedHomeScreenState(
-   // val sleepGraphData: SleepGraphData = sleepData,
+    val sleepGraphData: SleepGraphData = sleepData,
    // val wellnessData: WellnessData = WellnessData(10, 4, 5),
     val heartRateData: HeartRateOverallData = HeartRateOverallData()
 )
