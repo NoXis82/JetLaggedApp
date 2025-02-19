@@ -26,6 +26,8 @@ import ru.noxis.jetlaggedapp.viewmodel.JetLaggedHomeScreenViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ru.noxis.jetlaggedapp.backgrounds.movingStripesBackground
 import ru.noxis.jetlaggedapp.heartrate.HeartRateCard
+import ru.noxis.jetlaggedapp.sleep.AverageTimeAsleepCard
+import ru.noxis.jetlaggedapp.sleep.AverageTimeInBedCard
 import ru.noxis.jetlaggedapp.sleep.JetLaggedHeader
 import ru.noxis.jetlaggedapp.sleep.JetLaggedSleepGraphCard
 import ru.noxis.jetlaggedapp.ui.theme.JetLaggedAppTheme
@@ -70,6 +72,17 @@ fun JetLaggedScreen(
             verticalArrangement = Arrangement.Center,
             maxItemsInEachRow = 3
         ) {
+
+
+            if (windowSizeClass == WindowWidthSizeClass.Compact) {
+                AverageTimeInBedCard()
+                AverageTimeAsleepCard()
+            } else {
+                FlowColumn {
+                    AverageTimeInBedCard()
+                    AverageTimeAsleepCard()
+                }
+            }
 
             JetLaggedSleepGraphCard(uiState.value.sleepGraphData, Modifier.widthIn(max = 600.dp))
 
